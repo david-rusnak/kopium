@@ -243,6 +243,9 @@ impl Kopium {
                             if self.schema != "derived" {
                                 println!(r#"#[kube(schema = "{}")]"#, self.schema);
                             }
+                            if self.derive.contains(&"Default".to_string()) {
+                                println!(r#"#[kube(derive="Default")]"#);
+                            }
                         }
                         if s.is_enum {
                             println!("pub enum {} {{", s.name);
